@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.sever.coinsdetector.ui.components.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:text="Все готово"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:customFont="bold" />
+
+    <com.sever.coinsdetector.ui.components.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:text="Проверьте сделанные фото или выбранные из галереи"
+        android:textColor="@color/grey_dark"
+        android:textSize="14sp"
+        app:customFont="medium" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:columnCount="2"
+        android:rowCount="2">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/avers"
+            android:layout_width="145dp"
+            android:layout_height="145dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="5dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="0dp">
+
+            <ImageView
+                android:id="@+id/aversImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/ic_reload"
+                android:contentDescription="@null" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/revers"
+            android:layout_width="145dp"
+            android:layout_height="145dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_marginStart="5dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="0dp">
+
+            <ImageView
+                android:id="@+id/reversImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/ic_reload"
+                android:contentDescription="@null" />
+        </androidx.cardview.widget.CardView>
+
+        <com.sever.coinsdetector.ui.components.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Лицевая сторона"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:customFont="bold" />
+
+        <com.sever.coinsdetector.ui.components.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Оборотная часть"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:customFont="bold" />
+    </GridLayout>
+
+    <com.sever.coinsdetector.ui.components.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:text="Введите год выпуска"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:customFont="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/number1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:autofillHints="@null"
+            android:backgroundTint="@color/grey_dark"
+            android:hint="1"
+            android:inputType="number"
+            android:maxEms="1"
+            android:maxLength="1"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey_light"
+            android:textSize="50sp" />
+
+        <EditText
+            android:id="@+id/number2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:autofillHints="@null"
+            android:backgroundTint="@color/grey_dark"
+            android:hint="1"
+            android:inputType="number"
+            android:maxEms="1"
+            android:maxLength="1"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey_light"
+            android:textSize="50sp" />
+
+        <EditText
+            android:id="@+id/number3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:autofillHints="@null"
+            android:backgroundTint="@color/grey_dark"
+            android:hint="1"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey_light"
+            android:textSize="50sp" />
+
+        <EditText
+            android:id="@+id/number4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints="@null"
+            android:backgroundTint="@color/grey_dark"
+            android:hint="1"
+            android:inputType="number"
+            android:maxEms="1"
+            android:maxLength="1"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey_light"
+            android:textSize="50sp" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="40dp"
+        android:foreground="@drawable/ripple_button"
+        android:outlineAmbientShadowColor="@color/yellow"
+        android:outlineSpotShadowColor="@color/yellow"
+        app:cardBackgroundColor="@color/yellow"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="35dp">
+
+        <com.sever.coinsdetector.ui.components.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:text="Найти монету"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:customFont="bold" />
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

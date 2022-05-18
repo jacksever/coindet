@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spacing_baseline">14dp</dimen>
+    <dimen name="spacing_bottom">110dp</dimen>
+
+    <dimen name="test">250dp</dimen>
+    <dimen name="switchSize">48dp</dimen>
+    <dimen name="customSettingView_marginTop">5dp</dimen>
+    <dimen name="customSettingView_marginEnd">10dp</dimen>
+</resources>

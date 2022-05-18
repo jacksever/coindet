@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomTextView">
+        <attr name="customFont" format="enum">
+            <enum name="bold" value="0" />
+            <enum name="medium" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="HeaderButton">
+        <attr name="textButton" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="CoinInformation">
+        <attr name="title" format="string" />
+        <attr name="subtitle" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomSettingView">
+        <attr name="title" />
+        <attr name="subtitle" />
+        <attr name="switchEnable" format="boolean" />
+    </declare-styleable>
+</resources>

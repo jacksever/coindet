@@ -1,0 +1,20 @@
+Blazer
+Blouse
+Body
+Dress
+Hat
+Hoodie
+Longsleeve
+Not sure
+Other
+Outwear
+Pants
+Polo
+Shirt
+Shoes
+Shorts
+Skip
+Skirt
+T-Shirt
+Top
+Undershirt

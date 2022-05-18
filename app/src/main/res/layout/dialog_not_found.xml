@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/DialogGrey"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    tools:viewBindingIgnore="true">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_rectangle"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="65dp"
+        android:background="@drawable/ic_not_found"
+        android:contentDescription="@null" />
+
+    <com.sever.coinsdetector.ui.components.CustomTextView
+        android:id="@+id/memory_dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:text="Упс..."
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:customFont="bold" />
+
+    <com.sever.coinsdetector.ui.components.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:text="Кажется, монеты с таким годом выпуска не существует"
+        android:textColor="@color/grey_dark"
+        android:textSize="14sp"
+        app:customFont="medium" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/close"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="40dp"
+        android:foreground="@drawable/ripple_button"
+        android:outlineAmbientShadowColor="@color/yellow"
+        android:outlineSpotShadowColor="@color/yellow"
+        app:cardBackgroundColor="@color/yellow"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="35dp">
+
+        <com.sever.coinsdetector.ui.components.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:text="Понятно"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:customFont="bold" />
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

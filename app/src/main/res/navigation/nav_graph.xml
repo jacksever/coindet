@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startAppFragment">
+
+    <fragment
+        android:id="@+id/mainScreenFragment"
+        android:name="com.sever.coinsdetector.ui.fragments.MainScreenFragment"
+        android:label="MainScreenFragment"
+        tools:layout="@layout/main_screen_fragment">
+        <action
+            android:id="@+id/action_mainScreenFragment_to_sectionFragment"
+            app:destination="@id/sectionFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_mainScreenFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_mainScreenFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/sectionFragment"
+        android:name="com.sever.coinsdetector.ui.fragments.SectionFragment"
+        android:label="SectionFragment"
+        tools:layout="@layout/section_fragment">
+        <action
+            android:id="@+id/action_sectionFragment_to_aboutCoinFragment"
+            app:destination="@id/aboutCoinFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/sectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutCoinFragment"
+        android:name="com.sever.coinsdetector.ui.fragments.AboutCoinFragment"
+        android:label="AboutCoinFragment"
+        tools:layout="@layout/about_coin_fragment" />
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.sever.coinsdetector.ui.fragments.CameraFragment"
+        android:label="CameraFragment"
+        tools:layout="@layout/camera_fragment">
+        <action
+            android:id="@+id/action_cameraFragment_to_cameraCompleteFragment"
+            app:destination="@id/cameraCompleteFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/cameraCompleteFragment"
+        android:name="com.sever.coinsdetector.ui.fragments.CameraCompleteFragment"
+        android:label="CameraCompleteFragment"
+        tools:layout="@layout/camera_complete_fragment">
+        <action
+            android:id="@+id/action_cameraCompleteFragment_to_searchingFragment"
+            app:destination="@id/searchingFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchingFragment"
+        android:name="com.sever.coinsdetector.ui.fragments.SearchingFragment"
+        android:label="SearchingFragment"
+        tools:layout="@layout/searching_fragment">
+        <action
+            android:id="@+id/action_searchingFragment_to_aboutCoinFragment"
+            app:destination="@id/aboutCoinFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/mainScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startAppFragment"
+        android:name="com.sever.coinsdetector.ui.fragments.StartAppFragment"
+        android:label="StartAppFragment"
+        tools:layout="@layout/start_fragment">
+        <action
+            android:id="@+id/action_startAppFragment_to_mainScreenFragment"
+            app:destination="@id/mainScreenFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_startAppFragment_to_introFragment"
+            app:destination="@id/introFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/introFragment"
+        android:name="com.sever.coinsdetector.ui.fragments.IntroFragment"
+        android:label="IntroFragment"
+        tools:layout="@layout/intro_fragment">
+        <action
+            android:id="@+id/action_introFragment_to_mainScreenFragment"
+            app:destination="@id/mainScreenFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_introFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.sever.coinsdetector.ui.fragments.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/settings" />
+</navigation>

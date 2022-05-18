@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">coindet</string>
+
+    <string name="kop_1">1 копейка</string>
+    <string name="kop_1_years">1997 – 2014</string>
+    <string name="kop_5">5 копеек</string>
+    <string name="kop_5_years">1997 – 2014</string>
+    <string name="kop_10">10 копеек</string>
+    <string name="kop_10_years">1997 – 2015</string>
+    <string name="kop_50">50 копеек</string>
+    <string name="kop_50_years">1997 – 2015</string>
+    <string name="rub_1">1 рубль</string>
+    <string name="rub_1_years">1997 – по настоящее время</string>
+    <string name="rub_2">2 рубля</string>
+    <string name="rub_2_years">1997 – по настоящее время</string>
+    <string name="rub_3">3 рубля</string>
+    <string name="rub_3_years">1997 – по настоящее время</string>
+    <string name="rub_5">5 рублей</string>
+    <string name="rub_5_years">1997 – по настоящее время</string>
+    <string name="rub_10">10 рублей</string>
+    <string name="rub_10_years">2000 – по настоящее время</string>
+    <string name="rub_25">25 рублей</string>
+    <string name="rub_25_years">2011 – по настоящее время</string>
+
+    <string name="setting_title">Настройки</string>
+    <string name="clear_memory_subtitle">Вес файлов: %s</string>
+
+    <string name="camera_title">Лицевая часть</string>
+    <string name="camera_title2">Оборотная часть</string>
+    <string name="camera_subtitle">Сделайте фото лицевой части монеты или выберите фото из галереи</string>
+    <string name="camera_subtitle2">Переверните монету и сделайте фото или выберите фото из галереи</string>
+
+    <string name="button_take_photo">Сделать фото</string>
+</resources>
