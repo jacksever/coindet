@@ -1,6 +1,5 @@
 package com.sever.coinsdetector.ui.adapters;
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -13,6 +12,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.sever.coinsdetector.R;
 import com.sever.coinsdetector.databinding.SectionRowBinding;
 import com.sever.coinsdetector.entities.CoinCollection;
+import com.sever.coinsdetector.ui.fragments.SectionFragmentDirections;
 
 import java.util.List;
 
@@ -36,14 +36,13 @@ public class SectionListAdapter extends RecyclerView.Adapter<SectionListAdapter.
         holder.bind(models.get(position), isBottomSheet);
 
         holder.binding.getRoot().setOnClickListener(v -> {
-            Bundle bundle = new Bundle();
-            bundle.putString("name", models.get(position).getName());
-            bundle.putString("year", models.get(position).getYears());
+            SectionFragmentDirections.ActionSectionFragmentToAboutCoinFragment action =
+                    SectionFragmentDirections.actionSectionFragmentToAboutCoinFragment(models.get(position).getName(), models.get(position).getYears());
 
             if (isBottomSheet)
                 Navigation.findNavController(holder.binding.getRoot()).popBackStack();
 
-            Navigation.findNavController(holder.binding.getRoot()).navigate(R.id.aboutCoinFragment, bundle);
+            Navigation.findNavController(holder.binding.getRoot()).navigate(action);
         });
     }
 
@@ -62,7 +61,7 @@ public class SectionListAdapter extends RecyclerView.Adapter<SectionListAdapter.
 
         public void bind(@NonNull CoinCollection item, boolean isBottomSheet) {
             binding.name.setText(item.getName());
-            binding.years.setText(item.getYears() + " г.");
+            binding.years.setText(binding.getRoot().getContext().getString(R.string.info_year, item.getYears()));
 
             if (isBottomSheet) {
                 binding.arrow.setColorFilter(binding.getRoot().getContext().getColor(R.color.white));

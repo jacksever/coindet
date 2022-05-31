@@ -167,10 +167,9 @@ public class CameraCompleteFragment extends Fragment {
                     binding.number4.setBackgroundTintList(ColorStateList.valueOf(requireContext().getColor(R.color.red)));
             } else {
                 if (Integer.parseInt(builder.toString()) >= 1997 && Integer.parseInt(builder.toString()) <= 2020) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("year", builder.toString());
-
-                    NavHostFragment.findNavController(this).navigate(R.id.action_cameraCompleteFragment_to_searchingFragment, bundle);
+                    CameraCompleteFragmentDirections.ActionCameraCompleteFragmentToSearchingFragment action =
+                            CameraCompleteFragmentDirections.actionCameraCompleteFragmentToSearchingFragment(builder.toString());
+                    NavHostFragment.findNavController(this).navigate(action);
                 } else {
                     binding.number1.setBackgroundTintList(ColorStateList.valueOf(requireContext().getColor(R.color.red)));
                     binding.number2.setBackgroundTintList(ColorStateList.valueOf(requireContext().getColor(R.color.red)));
@@ -181,17 +180,19 @@ public class CameraCompleteFragment extends Fragment {
         });
 
         binding.avers.setOnClickListener(v -> {
-            Bundle bundle = new Bundle();
-            bundle.putString("state", "avers");
+            CameraCompleteFragmentDirections.ActionCameraCompleteFragmentToCameraFragment action =
+                    CameraCompleteFragmentDirections.actionCameraCompleteFragmentToCameraFragment();
+            action.setState("avers");
 
-            NavHostFragment.findNavController(this).navigate(R.id.cameraFragment, bundle);
+            NavHostFragment.findNavController(this).navigate(action);
         });
 
         binding.revers.setOnClickListener(v -> {
-            Bundle bundle = new Bundle();
-            bundle.putString("state", "revers");
+            CameraCompleteFragmentDirections.ActionCameraCompleteFragmentToCameraFragment action =
+                    CameraCompleteFragmentDirections.actionCameraCompleteFragmentToCameraFragment();
+            action.setState("revers");
 
-            NavHostFragment.findNavController(this).navigate(R.id.cameraFragment, bundle);
+            NavHostFragment.findNavController(this).navigate(action);
         });
 
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {

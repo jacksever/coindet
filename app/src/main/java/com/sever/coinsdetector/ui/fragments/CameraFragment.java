@@ -51,6 +51,7 @@ import java.util.concurrent.Executors;
 
 public class CameraFragment extends Fragment {
     private CameraFragmentBinding binding;
+    private CameraFragmentArgs data;
 
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
     private CameraSelector cameraSelector;
@@ -63,13 +64,11 @@ public class CameraFragment extends Fragment {
     private Camera camera;
 
     private String STATE = "avers";
-    private String STATE_RELOAD;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null)
-            STATE_RELOAD = getArguments().getString("state", null);
+        data = CameraFragmentArgs.fromBundle(getArguments());
     }
 
     @Nullable
@@ -95,8 +94,8 @@ public class CameraFragment extends Fragment {
                     Manifest.permission.CAMERA
             });
 
-        if (STATE_RELOAD != null)
-            if (STATE_RELOAD.equals("revers")) {
+        if (data.getState() != null)
+            if (data.getState().equals("revers")) {
                 binding.title.setText(requireContext().getString(R.string.camera_title2));
                 binding.subtitle.setText(requireContext().getString(R.string.camera_subtitle2));
             }
@@ -233,12 +232,12 @@ public class CameraFragment extends Fragment {
                         resolver.takePersistableUriPermission(selectedImage, takeFlags);
                     }
 
-                    if (STATE_RELOAD != null) {
+                    if (data.getState() != null) {
                         try {
                             Bitmap sourceBitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(), selectedImage);
                             Bitmap cropBitmap = Utils.cropBitmap(sourceBitmap);
 
-                            File file = new File(requireActivity().getFilesDir(), STATE_RELOAD + ".jpg");
+                            File file = new File(requireActivity().getFilesDir(), data.getState() + ".jpg");
                             FileOutputStream fOut = new FileOutputStream(file);
                             cropBitmap.compress(Bitmap.CompressFormat.PNG, 85, fOut);
                             fOut.flush();
@@ -297,12 +296,12 @@ public class CameraFragment extends Fragment {
         imageCapture.takePicture(options, imageCaptureExecutor, new ImageCapture.OnImageSavedCallback() {
             @Override
             public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
-                if (STATE_RELOAD != null) {
+                if (data.getState() != null) {
                     try {
                         Bitmap sourceBitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(), outputFileResults.getSavedUri());
                         Bitmap cropBitmap = Utils.cropBitmap(sourceBitmap);
 
-                        File file = new File(requireActivity().getFilesDir(), STATE_RELOAD + ".jpg");
+                        File file = new File(requireActivity().getFilesDir(), data.getState() + ".jpg");
                         FileOutputStream fOut = new FileOutputStream(file);
                         cropBitmap.compress(Bitmap.CompressFormat.PNG, 85, fOut);
                         fOut.flush();

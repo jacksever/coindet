@@ -19,13 +19,12 @@ import com.sever.coinsdetector.ui.viewmodels.CoinCollectionsViewModel;
 
 public class SectionFragment extends Fragment {
     private SectionFragmentBinding binding;
-    private String title;
+    private SectionFragmentArgs data;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null)
-            this.title = getArguments().getString("title");
+        data = SectionFragmentArgs.fromBundle(getArguments());
     }
 
     @Nullable
@@ -37,11 +36,11 @@ public class SectionFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        binding.header.setText(title);
+        binding.header.setText(data.getTitle());
         binding.header.setOnClickListener(v -> NavHostFragment.findNavController(this).popBackStack());
 
         CoinCollectionsViewModel viewModel = new ViewModelProvider(this).get(CoinCollectionsViewModel.class);
-        viewModel.getCollectionByName(title).observe(getViewLifecycleOwner(), items -> {
+        viewModel.getCollectionByName(data.getTitle()).observe(getViewLifecycleOwner(), items -> {
             SectionListAdapter adapter = new SectionListAdapter(items, false);
             binding.recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
             binding.recyclerView.setAdapter(adapter);

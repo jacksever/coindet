@@ -16,7 +16,6 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.sever.coinsdetector.App;
-import com.sever.coinsdetector.R;
 import com.sever.coinsdetector.database.Coin;
 import com.sever.coinsdetector.databinding.SearchingFragmentBinding;
 import com.sever.coinsdetector.ml.Model;
@@ -41,7 +40,8 @@ import java.util.Map;
 public class SearchingFragment extends Fragment {
     private SearchingFragmentBinding binding;
     private List<String> labels;
-    private String year, name;
+    private String name;
+    private SearchingFragmentArgs data;
 
     private static final float IMAGE_MEAN = 0.0f;
     private static final float IMAGE_STD = 1.0f;
@@ -49,8 +49,7 @@ public class SearchingFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null)
-            year = getArguments().getString("year");
+        data = SearchingFragmentArgs.fromBundle(getArguments());
     }
 
     @Nullable
@@ -77,13 +76,11 @@ public class SearchingFragment extends Fragment {
         binding.animation.addAnimatorListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationRepeat(Animator animation) {
-                Coin coin = App.getInstance().getDatabase().coinDao().getByNameAndYear(name, year);
+                Coin coin = App.getInstance().getDatabase().coinDao().getByNameAndYear(name, data.getYear());
                 if (coin != null) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("name", name);
-                    bundle.putString("year", year);
-
-                    NavHostFragment.findNavController(SearchingFragment.this).navigate(R.id.action_searchingFragment_to_aboutCoinFragment, bundle);
+                    SearchingFragmentDirections.ActionSearchingFragmentToAboutCoinFragment action =
+                            SearchingFragmentDirections.actionSearchingFragmentToAboutCoinFragment(name, data.getYear());
+                    NavHostFragment.findNavController(SearchingFragment.this).navigate(action);
                 } else {
                     binding.animation.cancelAnimation();
                     new NotFoundDialog(requireActivity()).openDialog();

@@ -31,4 +31,9 @@
     <string name="camera_subtitle2">Переверните монету и сделайте фото или выберите фото из галереи</string>
 
     <string name="button_take_photo">Сделать фото</string>
+
+    <string name="info_name">%s (%s г.)</string>
+    <string name="info_year">%s г.</string>
+    <string name="info_diameter">%s мм x %s мм</string>
+    <string name="info_weight">%s г.</string>
 </resources>

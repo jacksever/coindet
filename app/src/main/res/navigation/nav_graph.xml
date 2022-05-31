@@ -44,12 +44,22 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/sectionFragment" />
+        <argument
+            android:name="title"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/aboutCoinFragment"
         android:name="com.sever.coinsdetector.ui.fragments.AboutCoinFragment"
         android:label="AboutCoinFragment"
-        tools:layout="@layout/about_coin_fragment" />
+        tools:layout="@layout/about_coin_fragment">
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="year"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/cameraFragment"
         android:name="com.sever.coinsdetector.ui.fragments.CameraFragment"
@@ -62,6 +72,11 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <argument
+            android:name="state"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
     </fragment>
     <fragment
         android:id="@+id/cameraCompleteFragment"
@@ -75,6 +90,9 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_cameraCompleteFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchingFragment"
@@ -89,6 +107,9 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/mainScreenFragment" />
+        <argument
+            android:name="year"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/startAppFragment"

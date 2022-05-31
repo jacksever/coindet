@@ -37,18 +37,16 @@ public class MainScreenFragment extends Fragment {
                 (int) getResources().getDimension(R.dimen.spacing_bottom),
                 0);
 
-        GridLayoutManager layoutManager = new GridLayoutManager(requireContext(), 2);
         binding.list.invalidateItemDecorations();
         binding.list.addItemDecoration(decoration);
-        binding.list.setLayoutManager(layoutManager);
+        binding.list.setLayoutManager(new GridLayoutManager(requireContext(), 2));
         binding.list.setClipToPadding(false);
         binding.list.setItemViewCacheSize(100);
 
         CoinCollectionsViewModel viewModel = new ViewModelProvider(this).get(CoinCollectionsViewModel.class);
         viewModel.getCollectionSorting(requireContext()).observe(getViewLifecycleOwner(), items -> {
-            MainScreenAdapter adapter = new MainScreenAdapter(items);
             decoration.setElementSize(items.size());
-            binding.list.setAdapter(adapter);
+            binding.list.setAdapter(new MainScreenAdapter(items));
         });
 
         binding.camera.setOnClickListener(v ->

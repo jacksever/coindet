@@ -23,7 +23,7 @@ import com.sever.coinsdetector.enums.FontEnum;
  *
  * @version 1.2
  */
-public final class CustomSettingView extends RelativeLayout {
+public final class SettingView extends RelativeLayout {
     private CustomTextView title, subtitle;
     private SwitchCompat switchCompat;
     private ImageView imageButton;
@@ -37,7 +37,7 @@ public final class CustomSettingView extends RelativeLayout {
      *
      * @param context is non null
      */
-    public CustomSettingView(@NonNull Context context) {
+    public SettingView(@NonNull Context context) {
         super(context);
         init();
     }
@@ -48,7 +48,7 @@ public final class CustomSettingView extends RelativeLayout {
      * @param context is non null
      * @param attrs   is nullable
      */
-    public CustomSettingView(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public SettingView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.CustomSettingView);
 

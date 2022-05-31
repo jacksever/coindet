@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.sever.coinsdetector.App;
+import com.sever.coinsdetector.R;
 import com.sever.coinsdetector.database.Coin;
 import com.sever.coinsdetector.databinding.AboutCoinFragmentBinding;
 import com.sever.coinsdetector.ui.adapters.SectionListAdapter;
@@ -23,15 +24,12 @@ import com.sever.coinsdetector.ui.viewmodels.CoinCollectionsViewModel;
 
 public class AboutCoinFragment extends Fragment {
     private AboutCoinFragmentBinding binding;
-    private String name, year;
+    private AboutCoinFragmentArgs data;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            this.name = getArguments().getString("name");
-            this.year = getArguments().getString("year");
-        }
+        data = AboutCoinFragmentArgs.fromBundle(getArguments());
     }
 
     @Nullable
@@ -45,7 +43,7 @@ public class AboutCoinFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         binding.header.setOnClickListener(v -> NavHostFragment.findNavController(this).popBackStack());
 
-        Coin coin = App.getInstance().getDatabase().coinDao().getByNameAndYear(name, year);
+        Coin coin = App.getInstance().getDatabase().coinDao().getByNameAndYear(data.getName(), data.getYear());
         if (coin != null) {
             Glide.with(binding.getRoot().getContext())
                     .load(coin.urlAvers)
@@ -59,21 +57,20 @@ public class AboutCoinFragment extends Fragment {
                     .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                     .into(binding.revers);
 
-            binding.name.setText(name + " (" + year + " г.)");
+            binding.name.setText(requireContext().getString(R.string.info_name, data.getName(), data.getYear()));
             binding.year.setSubtitle(coin.year);
             binding.country.setSubtitle(coin.country);
-            binding.diametersAndThickness.setSubtitle(coin.diameter + " мм x " + coin.thickness + " мм");
+            binding.diametersAndThickness.setSubtitle(requireContext().getString(R.string.info_diameter, coin.diameter, coin.thickness));
             binding.material.setSubtitle(coin.material);
             binding.edge.setSubtitle(coin.edge);
-            binding.weight.setSubtitle(coin.weight + " г.");
+            binding.weight.setSubtitle(requireContext().getString(R.string.info_weight, coin.weight));
             setPrice(coin);
         }
 
         CoinCollectionsViewModel viewModel = new ViewModelProvider(this).get(CoinCollectionsViewModel.class);
-        viewModel.getCollectionByName(name).observe(getViewLifecycleOwner(), items -> {
-            SectionListAdapter adapter = new SectionListAdapter(items, true);
+        viewModel.getCollectionByName(data.getName()).observe(getViewLifecycleOwner(), items -> {
             binding.recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-            binding.recyclerView.setAdapter(adapter);
+            binding.recyclerView.setAdapter(new SectionListAdapter(items, true));
         });
 
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {

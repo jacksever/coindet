@@ -17,7 +17,7 @@ import com.sever.coinsdetector.R;
 public class ViewPort extends ViewGroup {
 
     public ViewPort(@NonNull Context context) {
-        super(context);
+        this(context, null);
     }
 
     public ViewPort(@NonNull Context context, @Nullable AttributeSet attrs) {
@@ -52,12 +52,12 @@ public class ViewPort extends ViewGroup {
         eraser.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         float width = getContext().getResources().getDimension(R.dimen.test);
         float height = getContext().getResources().getDimension(R.dimen.test);
-        RectF rect = new RectF(getWidth() / 2 - width / 2, getHeight() / 2 - height / 2, getWidth() / 2 + width / 2, getHeight() / 2 + height / 2);
 
-        //RectF frame = new RectF(width / 2 - 100, height / 2 - 100, width / 2 + 100, height / 2 + 100);
-        //RectF frame = new RectF((float) viewportMargin - 2, (float) viewportMargin - 2, width + 4, height + 4);
-        //Path path = new Path();
-        //path.addRoundRect(frame, (float) viewportCornerRadius, (float) viewportCornerRadius, Path.Direction.CW);
+        RectF rect = new RectF(
+                (float) getWidth() / 2 - width / 2,
+                (float) getHeight() / 2 - height / 2,
+                (float) getWidth() / 2 + width / 2,
+                (float) getHeight() / 2 + height / 2);
         canvas.drawRoundRect(rect, (float) viewportCornerRadius, (float) viewportCornerRadius, eraser);
     }
 }

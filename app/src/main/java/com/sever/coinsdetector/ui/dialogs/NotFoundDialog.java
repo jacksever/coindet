@@ -1,7 +1,6 @@
 package com.sever.coinsdetector.ui.dialogs;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
 
 import androidx.annotation.NonNull;

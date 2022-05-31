@@ -1,6 +1,5 @@
 package com.sever.coinsdetector.ui.adapters;
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -10,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.sever.coinsdetector.R;
 import com.sever.coinsdetector.databinding.MainScreenRowBinding;
 import com.sever.coinsdetector.entities.CoinCollection;
+import com.sever.coinsdetector.ui.fragments.MainScreenFragmentDirections;
 
 import java.util.List;
 
@@ -34,10 +33,10 @@ public class MainScreenAdapter extends RecyclerView.Adapter<MainScreenAdapter.Ma
         holder.bind(models.get(position));
 
         holder.binding.getRoot().setOnClickListener(v -> {
-            Bundle bundle = new Bundle();
-            bundle.putString("title", models.get(position).getName());
+            MainScreenFragmentDirections.ActionMainScreenFragmentToSectionFragment action =
+                    MainScreenFragmentDirections.actionMainScreenFragmentToSectionFragment(models.get(position).getName());
 
-            Navigation.findNavController(holder.itemView).navigate(R.id.action_mainScreenFragment_to_sectionFragment, bundle);
+            Navigation.findNavController(holder.itemView).navigate(action);
         });
     }
 
